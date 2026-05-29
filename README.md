@@ -1,47 +1,63 @@
-# ahu-filter-intelligence-assistant
+# AHU Filter Intelligence Assistant
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ## Overview
 
-This project provides a specialized assistant built on large language models to help field technicians, facility managers and purchasers identify the correct filters for air handling units (AHUs) and ventilation units. It addresses the common problem of missing or inconsistent filter data by combining available documentation, standards and best practices into a structured decision-support tool.
+**AHU Filter Intelligence Assistant** is a product-concept and prompt-architecture repository for an assistant that helps field technicians, facility managers and purchasers identify air-handling-unit filters more reliably.
 
-## Features
+The project addresses a practical operational problem: AHU and ventilation filter data is often incomplete, inconsistent or spread across manuals, labels and supplier catalogues. The assistant is designed to structure that uncertainty, ask only the most important follow-up questions, and separate confirmed facts from assumptions.
 
-- **Filter identification**: Quickly identify the correct OEM or compatible aftermarket filters for a given AHU or ventilation unit using brand/model, unit details, dimensions or existing filter markings.
-- **Compatibility checking**: Distinguish between supply and extract stages, pre filters and final filters, and confirm dimensional and class compatibility.
-- **OEM and aftermarket support**: Provide both original filters and high‑quality compatible replacements where available, with reliability scores.
-- **Confidence & reliability scoring**: Each recommendation includes confidence levels and reliability scores so users can judge when manual verification is required.
-- **Bilingual support**: Handles input and produces output in Danish and English.
-- **Field-ready workflows**: Designed for use on site or in fast‑paced service environments with minimal questions and clear next steps.
-- **Transparent standards**: Uses current filter classification standards (e.g. ISO 16890) and clearly distinguishes confirmed data from assumptions.
-- **Future extensibility**: Built with the intention to expand into a mobile app and to integrate private knowledge bases.
+> **Status:** product-concept and prompt-architecture baseline.  
+> This is not yet a production application, procurement system or verified manufacturer database.
 
-## How It Works
+## Intended capabilities
 
-Users provide whatever information is available about their unit—brand, model, serial number, size, filter dimensions or markings. The assistant cross‑references this input against accessible documentation and known configurations to narrow down the correct filter. It will ask for only the most critical missing detail and then provide a structured recommendation that separates confirmed facts from probable matches and assumptions. When data is incomplete, it suggests simple verification steps before ordering.
+- **Filter identification:** support brand/model, unit details, dimensions or existing filter markings.
+- **Compatibility checking:** distinguish supply/extract stages, pre-filters and final filters.
+- **OEM and aftermarket support:** present original and compatible alternatives when data is available.
+- **Confidence scoring:** make uncertainty visible before ordering.
+- **Bilingual workflow:** support Danish and English usage.
+- **Field-ready flow:** keep questions short and operationally useful.
+- **Standards awareness:** reference filter-classification concepts such as ISO 16890 where relevant.
 
-## Usage
+## How it works conceptually
 
-This assistant can be used inside ChatGPT or integrated into custom workflows:
+Users provide whatever information is available about their unit:
 
-1. Provide the unit brand and model (e.g. “Systemair Topvex TR09”) or details such as filter dimensions.
-2. Review the structured filter recommendation, confidence rating and notes.
-3. Confirm dimensions or other key details when prompted before placing an order.
-4. Use the field decision guidance (“Can order now”, “Needs one check”, etc.) to plan the next step.
+- brand,
+- model,
+- serial number,
+- filter dimensions,
+- photos or markings,
+- existing supplier notes.
 
-A future mobile app will make it even easier to scan labels, select units, and retrieve filter information on site.
+The assistant should then return a structured recommendation that separates:
 
-## Future Work
+1. confirmed details,
+2. probable matches,
+3. assumptions,
+4. verification steps before ordering.
 
-- Integrate with manufacturer data or internal ERP exports to improve exact model‑to‑filter mapping.
-- Expand the multilingual support beyond Danish and English.
-- Add a comprehensive knowledge base of filter catalogs and manuals.
-- Develop a dedicated mobile application with camera scanning and offline capabilities.
-- Offer automated ordering options once the correct filter is confirmed.
+## Safety and reliability boundaries
 
-## Contributing
+This repository is intentionally conservative:
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+- It should not claim certainty when manufacturer data is incomplete.
+- It should not recommend ordering when dimensions or class compatibility are unclear.
+- It should clearly mark assumptions and confidence levels.
+- It should encourage manual verification before purchase when the match is uncertain.
+- It does not currently include a live product database or supplier integration.
+
+## Future work
+
+- Integrate verified manufacturer data or internal ERP exports.
+- Add a structured filter-data schema.
+- Add test fixtures for assistant output quality.
+- Expand multilingual support beyond Danish and English.
+- Add a camera/label-scanning workflow for a future mobile interface.
+- Add supplier and ordering integrations only after confidence and verification rules are well defined.
 
 ## License
 
-This project is currently unlicensed. You may use the code and documentation for reference or inspiration but please contact the author before commercial use.
+This project is released under the MIT License. See the [LICENSE](LICENSE) file for details.
